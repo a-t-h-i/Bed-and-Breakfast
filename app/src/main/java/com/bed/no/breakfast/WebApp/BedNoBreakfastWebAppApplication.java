@@ -9,5 +9,6 @@ public class BedNoBreakfastWebAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BedNoBreakfastWebAppApplication.class, args);
 	}
+	
 
 }
