@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.stereotype.Controller;
 
+
 @Controller
 public class WebController{
   @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -17,7 +18,7 @@ public class WebController{
 		//This just redirects user to login page
 		return "login";
 	}
-  
+	
   //**************Login**************//
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(){
@@ -47,7 +48,7 @@ public class WebController{
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(@ModelAttribute("name") String name, @ModelAttribute("surname") String surname, @ModelAttribute("email") String  email, @ModelAttribute("phone") String phone, @ModelAttribute("idNumber") String idNumber){
+	public String registerUser(){
 	  
 	  //If user already exists redirect to register page and notify
 	  //If user entered incorrect details redirect to register page and notify

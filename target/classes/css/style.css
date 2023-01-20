@@ -51,4 +51,11 @@
         text-decoration: none; /* Remove underline */
         margin-top: 20px; /* Space link and form bottom */
     }
+    
+    /* #list {
+    list-style-type: none;
+    display: flex;
+     */justify-content: space-between;
+}
+
 </style>

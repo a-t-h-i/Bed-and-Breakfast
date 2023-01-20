@@ -1,0 +1,61 @@
+<style>
+    /* Page styling */
+    body {
+        background-color: #F5F5F5; /* Light gray background */
+    }
+
+    /* Form styling */
+    form {
+        max-width: 400px; /* Limit form width */
+        margin: 50px auto; /* Center form on page */
+        border-radius: 10px; /* Round form edges */
+        box-shadow: 0px 0px 15px #BBBBBB; /* Form shadow */
+        padding: 20px; /* Form padding */
+        background-color: #FFFFFF; /* White form background */
+    }
+
+    /* Form heading styling */
+    form h3 {
+        text-align: center; /* Center heading */
+        margin-bottom: 30px; /* Space heading and inputs */
+        color: #333333; /* Dark gray text color */
+    }
+
+    /* Input styling */
+    form input {
+        width: 100%; /* Fill form width */
+        padding: 12px 20px; /* Input padding */
+        margin: 8px 0; /* Space inputs */
+        box-sizing: border-box; /* Resize inputs to fit form */
+        border: 1px solid #BBBBBB; /* Light gray input border */
+        border-radius: 4px; /* Round input edges */
+    }
+
+    /* Button styling */
+    form button {
+        width: 100%; /* Fill form width */
+        background-color: #4CAF50; /* Green button background */
+        color: white; /* White text color */
+        padding: 14px 20px; /* Button padding */
+        margin: 8px 0; /* Space button and link */
+        border: none; /* No border */
+        border-radius: 4px; /* Round button edges */
+        cursor: pointer; /* Change cursor on hover */
+    }
+
+    /* Link styling */
+    form a {
+        text-align: center; /* Center link */
+        display: block; /* Full width link */
+        color: #0000FF; /* Blue text color */
+        text-decoration: none; /* Remove underline */
+        margin-top: 20px; /* Space link and form bottom */
+    }
+    
+    /* #list {
+    list-style-type: none;
+    display: flex;
+     */justify-content: space-between;
+}
+
+</style>

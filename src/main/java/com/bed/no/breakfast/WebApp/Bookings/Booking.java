@@ -7,12 +7,13 @@ public class Booking{
   private String email = ""; //Email of Person
   private Date arrive = null; //Date off arriving at bnb
   private Date leave = null; //Date of leaving
-  
-  public Booking(String name, String email, Date arrive, Date leave){
+  private Double price = 0.0;
+  public Booking(String name, String email, Date arrive, Date leave, Double price){
     this.name = name;
     this.email = email;
     this.arrive = arrive;
     this.leave = leave;
+    this.price = price;
   }
   
   public void changeDate(Date arrive, Date leave){
@@ -26,5 +27,9 @@ public class Booking{
   
   public String getEmail(){
     return this.email;
+  }
+  
+  public Double getPrice(){
+    return this.price;
   }
 }

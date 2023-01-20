@@ -1,28 +1,64 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Book a room</title>
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
   </head>
   
   <body>
     <form method="post">
+      <h3>Bed and No Breakfast</h3>
+      <li id="list">
+        <a th:href="@{/booking}">Booked</a>
+        <a th:href="@{/login}">Log Out</a>
+      </li>
+          
       <table>
-        <th><h3>Bed and No Breakfast</h3></th>
-        <tr><p id="user">Logged In</p></tr>
+        <th></th>
         <tr>
           <!-- start date -->
-          <td><label>From:</label></td>
+          <td><label>When would you like to book a room: </label></td>
           <td><input type="date" id="arrive"></td>
-          <td><label>until</label></td>
-          <td><input type="date" id="leave"></td>
         </tr>
         
         <tr>
           <td><label>Total: </label></td>
-          <td><label id="total">R0.00</label></td>
+          <td><label id="total"></label></td>
           <td><button id="book">Book Room</button></td>
         </tr>
       </table>
     </form>
   </body>
+
+  <script>
+  // Get references to the input field and label
+  var arrive = document.getElementById("arrive");
+  var total = document.getElementById("total");
+
+  // Add an event listener to the "arrive" input field
+  arrive.addEventListener("change", calculateTotal);
+  
+  function getDayOfYear(date) {
+  var start = new Date(date.getFullYear(), 0, 0);
+  var diff = date - start;
+  var oneDay = 1000 * 60 * 60 * 24;
+  var dayOfYear = Math.floor(diff / oneDay);
+  return dayOfYear;
+  }
+
+  function calculateTotal() {
+    
+    // Get the value of the "arrive" input field
+    var arriveDate = new Date(document.getElementById('arrive').value);
+    
+    const dayOfYear = getDayOfYear(arriveDate);
+    
+    //Calculate the total
+    var totalCost = (dayOfYear + 100) / 12;
+
+    // Update the label with the total cost
+    total.innerHTML = totalCost.toFixed(2);
+  }
+</script>
+
 </html>
