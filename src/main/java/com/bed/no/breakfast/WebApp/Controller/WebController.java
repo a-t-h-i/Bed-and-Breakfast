@@ -83,16 +83,16 @@ public class WebController{
 	public String gotoModify(){
 	  //If there are no bookings made then just show that there are no bookings
 	  //If user selects on change booking redirect to modify bookings page
-	  return("modify");//Take user to modify view
+	  return("change");//Take user to modify view
 	}
 	
 	//**************Change Booking**************//
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	@RequestMapping(value = "/change", method = RequestMethod.POST)
 	public String modify(){
-	  return "modify";
+	  return "bookings";
 	}
 	
-	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	@RequestMapping(value = "/change", method = RequestMethod.GET)
 	public String change(){
 	  //Add logic for based on user interaction on the page
 	  //Cancelling a booking 14 or more days before gives 100% refund
@@ -100,6 +100,6 @@ public class WebController{
 	  //7 days before gives 50% refund
 	  //3 to 6 days before gives 25% refund
 	  //2 days and lower before gives 0% refund
-	  return"bookings";//After succesful modification take user to bookings page
+	  return"change";//After succesful modification take user to bookings page
 	}
 }

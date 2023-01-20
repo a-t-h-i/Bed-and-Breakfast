@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Change</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+  <h3>Your bookings</h3>
+  <form action="/change" method="Post">
+  <table>
+    <tr>
+      <td><p>Date: </p></td>
+      <td><input type="date" id="bookingDate"></td>
+      <td><button id="change">Reschedule</button></td>
+      <td><button id="cancel">Cancel</button></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td></td>
+      <td><label id="resCharge">R0</label></td>
+      <td><label id="cancelCharge">R0</label></td>
+    </tr>
+  </table>
+  </form>
+  </body>
+</html>

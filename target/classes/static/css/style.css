@@ -42,6 +42,28 @@
         border-radius: 4px; /* Round button edges */
         cursor: pointer; /* Change cursor on hover */
     }
+    
+    #change {
+        width: 100%; /* Fill form width */
+        background-color: Orange; /* Green button background */
+        color: white; /* White text color */
+        padding: 14px 20px; /* Button padding */
+        margin: 8px 0; /* Space button and link */
+        border: none; /* No border */
+        border-radius: 4px; /* Round button edges */
+        cursor: pointer; /* Change cursor on hover */
+    }
+    
+    #cancel {
+        width: 100%; /* Fill form width */
+        background-color: Red; /* Green button background */
+        color: white; /* White text color */
+        padding: 14px 20px; /* Button padding */
+        margin: 8px 0; /* Space button and link */
+        border: none; /* No border */
+        border-radius: 4px; /* Round button edges */
+        cursor: pointer; /* Change cursor on hover */
+    }
 
     /* Link styling */
     form a {
