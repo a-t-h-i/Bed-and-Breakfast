@@ -1,2 +1,6 @@
-com/bed/no/breakfast/WebApp/WebController.class
 com/bed/no/breakfast/WebApp/BedNoBreakfastWebAppApplication.class
+com/bed/no/breakfast/WebApp/User/Database/UserDatabase.class
+com/bed/no/breakfast/WebApp/User/Person.class
+com/bed/no/breakfast/WebApp/Bookings/Database/BookingsDb.class
+com/bed/no/breakfast/WebApp/Bookings/Booking.class
+com/bed/no/breakfast/WebApp/Controller/WebController.class

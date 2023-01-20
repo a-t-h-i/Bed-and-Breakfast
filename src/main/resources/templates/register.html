@@ -1,40 +1,42 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Register</title>
+    <link rel="stylesheet" href="/style/style.css">
   </head>
   
   <body>
-    <form id="register" method="post">
+    <form id="register" th:action="@{/register}" method="post">
       <table>
         <th><h3>Create User Profile</h3></th>
         <!-- Name -->
         <tr>
           <td><label>Name: </label></td>
-          <td><input id="name" type="text" placeholder="John"></td>
+          <td><input id="name" type="text" placeholder="John" th:field="*{name}"></td>
         </tr>
         
         <!-- Surname -->
         <tr>
           <td><label>Surname: </label></td>
-          <td><input id="surname" type="text" placeholder="Doe"></td>
+          <td><input id="surname" type="text" placeholder="Doe" th:field="*{surname}"></td>
         </tr>
         
         <!-- Id number -->
         <tr>
           <td><label>Identity Number: </label></td>
-          <td><input id="idnumber" type="text" placeholder="XXXXXXXXXXXXX"></td>
+          <td><input id="idnumber" type="text" placeholder="XXXXXXXXXXXXX" th:field="*{idNumber}"></td>
         </tr>
         
         <!-- Phone number -->
         <tr>
           <td><label>Phone: </label></td>
-          <td><input id="phone" type="text" placeholder="0712345678"></td>
+          <td><input id="phone" type="text" placeholder="0712345678" th:field="*{phoneNumber}"></td>
         </tr>
         
         <!-- Password -->
         <tr>
           <td><label>Password: </label></td>
-          <td><input id="password" type="password" placeholder="xxxxx"></td>
+          <td><input id="password" type="password" placeholder="xxxxx" th:field="*{password}"></td>
         </tr>
         
         <!-- Register button -->

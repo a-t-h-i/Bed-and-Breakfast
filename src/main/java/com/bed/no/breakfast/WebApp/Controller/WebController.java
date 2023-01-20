@@ -1,4 +1,4 @@
-package com.bed.no.breakfast.WebApp;
+package com.bed.no.breakfast.WebApp.Controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,11 +31,13 @@ public class WebController{
 		return "book";
 	}
 	
-// 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-// 	public String register(){
-// 		//Need to add logic to verify user details
-// 		return "egister";
-// 	}
+	
+// 	("/foo")
+//     public String showPage(@ModelAttribute("someBean") SomeBean bean) {
+
+//         System.out.println("Date planted: " + bean.getDatePlanted()); //in reality, you'd use a logger instead :)
+//         return "redirect:someOtherPage";
+//     }
 	
 	//**************Register**************//
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -45,7 +47,8 @@ public class WebController{
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(){
+	public String registerUser(@ModelAttribute("name") String name, @ModelAttribute("surname") String surname, @ModelAttribute("email") String  email, @ModelAttribute("phone") String phone, @ModelAttribute("idNumber") String idNumber){
+	  
 	  //If user already exists redirect to register page and notify
 	  //If user entered incorrect details redirect to register page and notify
 	  
