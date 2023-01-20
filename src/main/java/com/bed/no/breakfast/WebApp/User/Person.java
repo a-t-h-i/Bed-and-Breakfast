@@ -6,13 +6,14 @@ public class Person{
   private String idNum = "";
   private String email = "";
   private String phone = "";
-  
-  public Person(String name, String surname, String idNum, String email, String phone){
+  private String password ="";
+  public Person(String name, String surname, String idNum, String email, String phone, String password){
     this.name = name;
     this.surname = surname;
     this.idNum = idNum;
     this.email = email;
     this.phone = phone;
+    this.password = password;
   }
   
   public String getName(){
