@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Book a room</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
   </head>
   
   <body>
     <form method="post">
       <h3>Bed and No Breakfast</h3>
       <li id="list">
-        <a th:href="@{/booking}">Booked</a>
+        <a th:href="@{/bookings}">Booked</a>
         <a th:href="@{/login}">Log Out</a>
       </li>
           

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="/style/style.css">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
     <form th:action="@{/login}" method="post">
