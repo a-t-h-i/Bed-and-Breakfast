@@ -6,5 +6,6 @@ com/bed/no/breakfast/WebApp/Bookings/Database/BookingsDb.class
 com/bed/no/breakfast/WebApp/Bookings/Booking.class
 com/bed/no/breakfast/WebApp/Controller/Login/LoginController.class
 com/bed/no/breakfast/WebApp/Controller/Bookings/BookingsController.class
+com/bed/no/breakfast/WebApp/Controller/Login/LoginController$Login.class
 com/bed/no/breakfast/WebApp/Controller/WebController.class
 com/bed/no/breakfast/WebApp/Controller/Register/RegisterController.class

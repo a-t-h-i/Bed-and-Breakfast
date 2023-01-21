@@ -28,23 +28,22 @@ public class RegisterController{
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(){
-	  String name = "Athenkosi";
-	  String surname = "Hlubi";
-	  String idNum = "9709279510088";
-	  String email = "athi@hlubi.com";
-	  String phone = "0764802238";
-	  String password = "admin";
-	  
+	public String registerUser(@ModelAttribute Person user){
+	  String name = user.getName();
+	  String surname = user.getSurname();
+	  String email = user.getEmail();
+	  String phone = user.getPhone();
+	  String password = user.getPassword();
+	
 	  if (!userExists(email, password)){
-	    addUser(name, surname, idNum, email, phone, password);
+	    addUser(name, surname, email, phone, password);
 	    return("login");
 	  }
 	  return("register");
 	}
 	
-	public void addUser(String name, String surname, String idNum, String email, String phone, String password){
-	  Person user = new Person(name, surname, idNum, email, phone, password);
+	public void addUser(String name, String surname, String email, String phone, String password){
+	  Person user = new Person(name, surname, email, phone, password);
 	  webService.getUserDb().addUser(user);
 	}
 	

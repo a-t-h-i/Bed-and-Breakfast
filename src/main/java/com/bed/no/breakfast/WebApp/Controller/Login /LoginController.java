@@ -26,9 +26,11 @@ public class LoginController{
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String logUser(){
-	  String email = "athi@hlubi.com";
-	  String password = "admin";
+	public String logUser(@ModelAttribute Login user){
+	  String email = user.getEmail();
+	  String password = user.getPassword();
+	  
+	  System.out.println(email + " " + password);
 		if (userExists(email, password)){
 		  return "book";  
 		}
@@ -39,6 +41,7 @@ public class LoginController{
 	  List<Person> users = webService.getUserDb().getUsers();
 	  
 	  for (Person user: users){
+	    System.out.println(user.getName());
 	    if (user.getEmail().equals(email)){
 	      if(user.getPassword().equals(password)){
 	        return true;
@@ -46,5 +49,23 @@ public class LoginController{
 	    }
 	  }
 	  return false;
+	}
+	
+	public class Login{
+	  private String email ="";
+	  private String password ="";
+	  
+	  public Login(String email, String password){
+	    this.email = email;
+	    this.password = password;
+	  }
+	  
+	  public String getEmail(){
+	    return this.email;
+	  }
+	  
+	  public String getPassword(){
+	    return this.password;
+	  }
 	}
 }
