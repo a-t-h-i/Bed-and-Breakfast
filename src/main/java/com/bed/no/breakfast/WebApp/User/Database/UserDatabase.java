@@ -1,5 +1,4 @@
 package com.bed.no.breakfast.WebApp.User.Database;
-
 import com.bed.no.breakfast.WebApp.User.Person;
 import java.util.*;
 
@@ -13,5 +12,8 @@ public class UserDatabase{
     this.users.add(user);
   }
   
+  public List<Person> getUsers(){
+    return this.users;
+  }
   //For now that is all I need for basic functionality
 }

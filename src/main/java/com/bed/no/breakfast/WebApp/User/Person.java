@@ -7,6 +7,7 @@ public class Person{
   private String email = "";
   private String phone = "";
   private String password ="";
+  
   public Person(String name, String surname, String idNum, String email, String phone, String password){
     this.name = name;
     this.surname = surname;
@@ -34,5 +35,9 @@ public class Person{
   
   public String getPhone(){
     return this.phone;
+  }
+  
+  public String getPassword(){
+    return this.password;
   }
 }
