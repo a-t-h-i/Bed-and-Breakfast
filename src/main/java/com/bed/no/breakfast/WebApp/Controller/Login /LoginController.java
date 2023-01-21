@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.stereotype.Controller;
-// import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bed.no.breakfast.WebApp.User.Person;
 import com.bed.no.breakfast.WebApp.StartServices;
-
 import java.util.*;
 
 @Controller
@@ -30,7 +28,7 @@ public class LoginController{
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String logUser(){
 	  String email = "athi@hlubi.com";
-	  String password = "hlubi";
+	  String password = "admin";
 		if (userExists(email, password)){
 		  return "book";  
 		}

@@ -9,9 +9,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.bed.no.breakfast.WebApp.User.Person;
+import com.bed.no.breakfast.WebApp.StartServices;
+import java.util.*;
+
 
 @Controller
 public class RegisterController{
+  @Autowired
+  StartServices webService;
+  
   //**************Register**************//
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerPage(){
@@ -21,11 +29,35 @@ public class RegisterController{
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerUser(){
+	  String name = "Athenkosi";
+	  String surname = "Hlubi";
+	  String idNum = "9709279510088";
+	  String email = "athi@hlubi.com";
+	  String phone = "0764802238";
+	  String password = "admin";
 	  
-	  //If user already exists redirect to register page and notify
-	  //If user entered incorrect details redirect to register page and notify
+	  if (!userExists(email, password)){
+	    addUser(name, surname, idNum, email, phone, password);
+	    return("login");
+	  }
+	  return("register");
+	}
+	
+	public void addUser(String name, String surname, String idNum, String email, String phone, String password){
+	  Person user = new Person(name, surname, idNum, email, phone, password);
+	  webService.getUserDb().addUser(user);
+	}
+	
+	public boolean userExists(String email, String password){
+	  List<Person> users = webService.getUserDb().getUsers();
 	  
-	  //Add code for saving user to database of users and redirect to login page if the user met the above requirements
-	  return("login");//Take user back to loginPage after registration
+	  for (Person user: users){
+	    if (user.getEmail().equals(email)){
+	      if(user.getPassword().equals(password)){
+	        return true;
+	      }
+	    }
+	  }
+	  return false;
 	}
 }
