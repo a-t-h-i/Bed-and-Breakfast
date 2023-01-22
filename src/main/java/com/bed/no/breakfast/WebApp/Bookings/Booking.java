@@ -3,13 +3,11 @@ import java.util.*;
 import java.time.LocalDate;
 public class Booking{
   //This is a booking class that'll be used to create booking objects
-  private String name = "";
   private String email = ""; //Email of Person
   private LocalDate arrive = null; //Date off arriving at bnb
   private Double price = 0.0;
   
-  public Booking(String name, String email, LocalDate arrive, Double price){
-    this.name = name;
+  public Booking(String email, LocalDate arrive, Double price){
     this.email = email;
     this.arrive = arrive;
     this.price = price;
@@ -17,10 +15,6 @@ public class Booking{
   
   public void changeDate(LocalDate arrive){
     this.arrive = arrive;
-  }
-  
-  public String getName(){
-    return this.name;
   }
   
   public String getEmail(){

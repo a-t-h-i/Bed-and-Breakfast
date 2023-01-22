@@ -12,17 +12,20 @@ public class BookingsDb{
     this.bookings.add(book);
   }
   
+  public List<Booking> getBookings(){
+    return this.bookings;
+  }
+  
   public void removeBooking(Booking book){
     String email = book.getEmail();
-    String name = book.getName();
+    Double price = book.getPrice();
     
     //For loop to find the booking to remove
     for (int i = 0; i != bookings.size(); i++){
-      String resName = bookings.get(i).getName();
       String resEmail = bookings.get(i).getEmail();
-      
-      if (name.equals(resName)){
-        if(email.equals(resEmail)){
+      Double resPrice = bookings.get(i).getPrice();
+      if (email.equals(resEmail)){
+        if(price == resPrice){
           bookings.remove(i);
         }
       }

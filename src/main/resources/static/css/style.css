@@ -1,82 +1,74 @@
-<style>
-    /* Page styling */
-    body {
-        background-color: #F5F5F5; /* Light gray background */
-    }
-
-    /* Form styling */
-    form {
-        max-width: 400px; /* Limit form width */
-        margin: 50px auto; /* Center form on page */
-        border-radius: 10px; /* Round form edges */
-        box-shadow: 0px 0px 15px #BBBBBB; /* Form shadow */
-        padding: 20px; /* Form padding */
-        background-color: #FFFFFF; /* White form background */
-    }
-
-    /* Form heading styling */
-    form h3 {
-        text-align: center; /* Center heading */
-        margin-bottom: 30px; /* Space heading and inputs */
-        color: #333333; /* Dark gray text color */
-    }
-
-    /* Input styling */
-    form input {
-        width: 100%; /* Fill form width */
-        padding: 12px 20px; /* Input padding */
-        margin: 8px 0; /* Space inputs */
-        box-sizing: border-box; /* Resize inputs to fit form */
-        border: 1px solid #BBBBBB; /* Light gray input border */
-        border-radius: 4px; /* Round input edges */
-    }
-
-    /* Button styling */
-    form button {
-        width: 100%; /* Fill form width */
-        background-color: #4CAF50; /* Green button background */
-        color: white; /* White text color */
-        padding: 14px 20px; /* Button padding */
-        margin: 8px 0; /* Space button and link */
-        border: none; /* No border */
-        border-radius: 4px; /* Round button edges */
-        cursor: pointer; /* Change cursor on hover */
-    }
-    
-    #change {
-        width: 100%; /* Fill form width */
-        background-color: Orange; /* Green button background */
-        color: white; /* White text color */
-        padding: 14px 20px; /* Button padding */
-        margin: 8px 0; /* Space button and link */
-        border: none; /* No border */
-        border-radius: 4px; /* Round button edges */
-        cursor: pointer; /* Change cursor on hover */
-    }
-    
-    #cancel {
-        width: 100%; /* Fill form width */
-        background-color: Red; /* Green button background */
-        color: white; /* White text color */
-        padding: 14px 20px; /* Button padding */
-        margin: 8px 0; /* Space button and link */
-        border: none; /* No border */
-        border-radius: 4px; /* Round button edges */
-        cursor: pointer; /* Change cursor on hover */
-    }
-
-    /* Link styling */
-    form a {
-        text-align: center; /* Center link */
-        display: block; /* Full width link */
-        color: #0000FF; /* Blue text color */
-        text-decoration: none; /* Remove underline */
-        margin-top: 20px; /* Space link and form bottom */
-    }
-    
-    #list {
-    list-style-type: none;
-    display: flex;
+/* Page styling */
+body {
+    background-color: #f0f2f5; /* Big Sur background color */
+    font-family: 'SF Pro Display', sans-serif; /* Use the SF Pro Display font */
 }
 
-</style>
+/* Form styling */
+form {
+    max-width: 600px; /* Increase form width */
+    margin: 50px auto; /* Center form on page */
+    border-radius: 20px; /* Increase border radius */
+    padding: 20px; /* Form padding */
+    background-color: #FFFFFF; /* White form background */
+    box-shadow: 0px 0px 15px #BBBBBB; /* Add a subtle shadow */
+}
+
+#booked {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Form heading styling */
+form h3 {
+    text-align: center; /* Center heading */
+    margin-bottom: 30px; /* Space heading and inputs */
+    color: #333333; /* Dark gray text color */
+    font-size: 2em; /* Increase font size */
+    text-shadow: 1px 1px 1px #BDBDBD; /* Add a subtle text shadow */
+}
+
+/* List styling */
+li {
+    list-style: none; /* Remove bullet points */
+    text-align: right; /* Align list items to the right */
+    margin-right: 20px; /* Space between right side of list items and edge of page */
+    margin-bottom: 30px; /* Space list items */
+    font-size: 1.2em; /* Increase font size */
+}
+
+/* Link styling */
+a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007aff; /* Big Sur link color */
+    margin-left: 5px; /* Space between links */
+    font-weight: bold; /* Increase font weight */
+}
+
+/* Input styling */
+form input {
+    width: 100%; /* Fill form width */
+    padding: 12px 20px; /* Input padding */
+    margin: 8px 0; /* Space inputs */
+    box-sizing: border-box; /* Resize inputs to fit form */
+    border: 1px solid #BBBBBB; /* Light gray input border */
+    border-radius: 4px; /* Round input edges */
+    font-size: 1.2em; /* Increase font size */
+    background-color: #f7f7f7; /* Light gray background for input fields */
+}
+
+/* Button styling */
+form button {
+    width: 100%; /* Fill form width */
+    background-color: #007aff; /* Big Sur button color */
+    color: #FFFFFF; /* White button text */
+    padding: 14px 20px; /* Increase button padding */
+    margin: 8px 0; /* Space button and inputs */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Round button edges */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 1.2em; /* Increase font size */
+    font-weight: bold; /* Increase font weight */
+    transition: background-color 0.3s ease;
+}

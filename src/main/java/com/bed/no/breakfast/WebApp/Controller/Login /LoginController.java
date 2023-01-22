@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bed.no.breakfast.WebApp.User.Person;
 import com.bed.no.breakfast.WebApp.StartServices;
+import org.springframework.web.servlet.ModelAndView;
 import java.util.*;
 
 @Controller
@@ -31,9 +32,30 @@ public class LoginController{
 	  String password = user.getPassword();
 	 
 		if (userExists(email, password)){
+		  saveToSession(email);
 		  return "book";  
 		}
 		return "login";
+	}
+	
+	public void saveToSession(String email){
+	  List<Person> users = webService.getUserDb().getUsers();
+	  
+	  for (int i = 0; i != users.size(); i++){
+	    if (users.get(i).getEmail().equals(email)){
+	      webService.getSession().logIn(users.get(i)); //Log the user by passing their person object to sessions
+	    }
+	  }
+	}
+	
+	public void removeFromSession(String email){
+	  List<Person> users = webService.getUserDb().getUsers();
+	  
+	  for (int i = 0; i != users.size(); i++){
+	    if (users.get(i).getEmail().equals(email)){
+	      webService.getSession().logOut(users.get(i));
+	    }
+	  }
 	}
 
 	public boolean userExists(String email, String password){

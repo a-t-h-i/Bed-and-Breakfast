@@ -9,4 +9,5 @@ com/bed/no/breakfast/WebApp/Controller/Bookings/BookingsController.class
 com/bed/no/breakfast/WebApp/Controller/Login/LoginController$Login.class
 com/bed/no/breakfast/WebApp/Controller/Bookings/BookingsController$bookObj.class
 com/bed/no/breakfast/WebApp/Controller/WebController.class
+com/bed/no/breakfast/WebApp/UserSessions.class
 com/bed/no/breakfast/WebApp/Controller/Register/RegisterController.class

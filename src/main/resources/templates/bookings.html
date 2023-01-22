@@ -3,17 +3,12 @@
     <title>Room bookings</title>
     <link th:href="@{/css/style.css}" rel="stylesheet" />
   </head>
-  
   <body>
-    <form>
-      <table>
-        <th><h3>Bed and No breakfast</h3></th>
-        <tr><p id="user">Logged in user</p></tr>
-        <tr id="bookings">
-          <td><p>Booking 1</p></td>
-          <td><button id="changeBooking1">Modify Booking</button></td>
-        </tr>
-      </table>
-    </form>
-  </body>
+    <h1>Bookings</h1>
+    <ul>
+        <li id="booked" th:each="booking : ${bookings}">
+            <a th:href="@{/change}" th:text="${booking.date}"></a>
+        </li>
+    </ul>
+</body>
 </html>
