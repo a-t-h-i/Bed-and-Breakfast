@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.stereotype.Controller;
+import com.bed.no.breakfast.WebApp.Bookings.Booking;
+import com.bed.no.breakfast.WebApp.User.Person;
+import java.time.LocalDate;
 
 @Controller
+
+
+// Booking(String name, String email, LocalDate arrive, Double price)
 
 public class BookingsController{
   //**************Book**************//
@@ -18,9 +24,15 @@ public class BookingsController{
 	public String book(){
 	  return("book");//Goto book room view
 	}
-	
+
 	@RequestMapping(value = "/book", method = RequestMethod.POST)
-	public String bookRoom(){
+	public String bookRoom(@ModelAttribute bookObj bookObject){
+	  String user = bookObject.getUser();
+	  Double price = bookObject.getPrice();
+	  LocalDate date = bookObject.getDate();
+	  
+	  System.out.println("Price: " + price);
+	  System.out.println("Date: " + date);
 	  //If the room is already booked for that date notify the user and redirect to book page
 	  //If the user selects more than 5 days notify the user and redirect to book page 
 	  //Add code for saving  the booking to the bookings database if the user met the above requirements
@@ -58,4 +70,29 @@ public class BookingsController{
 	  //2 days and lower before gives 0% refund
 	  return"change";//After succesful modification take user to bookings page
 	}
+	
+	class bookObj{
+	  private LocalDate date = null;
+	  private Double price = null;
+	  private String user = "";
+	  
+	  public bookObj(LocalDate date, Double price, String user){
+	    this.date = date;
+	    this.price = price;
+	    this.user = user;
+	  }
+	  
+	  public LocalDate getDate(){
+	    return this.date;
+	  }
+	  
+	  public Double getPrice(){
+	    return this.price;
+	  }
+	  
+	  public String getUser(){
+	    return this.user;
+	  }
+	}
+	
 }

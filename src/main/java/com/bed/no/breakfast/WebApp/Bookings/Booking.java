@@ -1,24 +1,22 @@
 package com.bed.no.breakfast.WebApp.Bookings;
 import java.util.*;
-
+import java.time.LocalDate;
 public class Booking{
   //This is a booking class that'll be used to create booking objects
   private String name = "";
   private String email = ""; //Email of Person
-  private Date arrive = null; //Date off arriving at bnb
-  private Date leave = null; //Date of leaving
+  private LocalDate arrive = null; //Date off arriving at bnb
   private Double price = 0.0;
-  public Booking(String name, String email, Date arrive, Date leave, Double price){
+  
+  public Booking(String name, String email, LocalDate arrive, Double price){
     this.name = name;
     this.email = email;
     this.arrive = arrive;
-    this.leave = leave;
     this.price = price;
   }
   
-  public void changeDate(Date arrive, Date leave){
+  public void changeDate(LocalDate arrive){
     this.arrive = arrive;
-    this.leave = leave;
   }
   
   public String getName(){
@@ -31,5 +29,9 @@ public class Booking{
   
   public Double getPrice(){
     return this.price;
+  }
+  
+  public LocalDate getDate(){
+    return this.arrive;
   }
 }

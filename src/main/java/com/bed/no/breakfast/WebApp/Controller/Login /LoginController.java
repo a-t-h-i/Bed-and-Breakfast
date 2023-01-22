@@ -29,8 +29,7 @@ public class LoginController{
 	public String logUser(@ModelAttribute Login user){
 	  String email = user.getEmail();
 	  String password = user.getPassword();
-	  
-	  System.out.println(email + " " + password);
+	 
 		if (userExists(email, password)){
 		  return "book";  
 		}

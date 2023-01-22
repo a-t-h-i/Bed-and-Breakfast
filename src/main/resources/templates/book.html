@@ -10,20 +10,21 @@
       <h3>Bed and No Breakfast</h3>
       <li id="list">
         <a th:href="@{/bookings}">Booked</a>
+        <br>
         <a th:href="@{/login}">Log Out</a>
       </li>
           
       <table>
-        <th></th>
+        <th><label id="user" name="user"></th>
         <tr>
           <!-- start date -->
           <td><label>When would you like to book a room: </label></td>
-          <td><input type="date" id="arrive"></td>
+          <td><input name="date" type="date" id="arrive"></td>
         </tr>
         
         <tr>
           <td><label>Total: </label></td>
-          <td><label id="total"></label></td>
+          <td><input type="text" placeholder="0.00" id="total" name="price" readonly></td>
           <td><button id="book">Book Room</button></td>
         </tr>
       </table>
@@ -56,8 +57,8 @@
     //Calculate the total
     var totalCost = (dayOfYear + 100) / 12;
 
-    // Update the label with the total cost
-    total.innerHTML = totalCost.toFixed(2);
+    // Update the input field with the total cost
+    total.value = totalCost.toFixed(2);
   }
 </script>
 
