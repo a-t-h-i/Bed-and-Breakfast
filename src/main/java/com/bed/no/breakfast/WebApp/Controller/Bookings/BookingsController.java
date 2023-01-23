@@ -52,17 +52,20 @@ public class BookingsController{
 	}
 	
 	//**************ViewBookings**************//
-  @RequestMapping(value = "/bookings/{date}", method = RequestMethod.GET)
-  public String bookings(@PathVariable("date") LocalDate date, Model model ){
+  @RequestMapping(value = "/change/{date}", method = RequestMethod.GET)
+  public String bookings(@PathVariable("date") String date, Model model){
       List<Booking> bookings = webService.getBookingsDb().getBookings();
+      
+      LocalDate daat = LocalDate.parse(date);
       Booking booking = null;
-      System.out.println("Date: " +date);
+      
+      System.out.println("Date: " + date);
+      
       for (Booking book: bookings){
-        if (book.getDate().isEqual(date)){
+        if (book.getDate().isEqual(daat)){
           booking = book;
         }
       }
-      
       model.addAttribute("booking", booking);
       return "change";
   }
@@ -88,7 +91,7 @@ public class BookingsController{
 	}
 	
 	@RequestMapping(value = "/change", method = RequestMethod.GET)
-	public String change(){
+	public String change(Model model){
 	  return"change";
 	}
 	

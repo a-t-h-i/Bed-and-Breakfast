@@ -10,6 +10,10 @@
           <a>  -  </a>
           <a th:href="@{/login}">Log Out</a>
     </li>
+    <input name="date" id="date" th:text="${booking.getDate()}">
+    <input name="price" id="price" th:text="${booking.getPrice()}">
+    
+    
   <form th:action="@{/change}" method="Post">
   <table>
     <tr>

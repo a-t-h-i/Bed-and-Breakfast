@@ -14,7 +14,7 @@
         <h4>Booked dates: </h4>
         <ul>
         <li id="booked" th:each="booking : ${bookings}">
-            <a th:href="@{/change}" th:text="${booking.date}"></a>
+            <a th:href="@{/change/booking.date}" th:text="${booking.date}"></a>
         </li>
     </ul>    
       </form>
