@@ -45,7 +45,6 @@ public class BookingsController{
 	  String user = bookObject.getUser();
 	  LocalDate date = bookObject.getDate();
 	  Double price = bookObject.getPrice();
-	  
 	  //Add booking to db
 	  addBooking(user, date, price);
 	  return "book";//stay on same page
@@ -55,18 +54,15 @@ public class BookingsController{
   @RequestMapping(value = "/change/{date}", method = RequestMethod.GET)
   public String bookings(@PathVariable("date") String date, Model model){
       List<Booking> bookings = webService.getBookingsDb().getBookings();
-      
-      LocalDate daat = LocalDate.parse("2023-01-23");
       Booking booking = null;
       
-      System.out.println("Date: " + date);
-      
       for (Booking book: bookings){
-        if (book.getDate().isEqual(daat)){
+        if (book.getDate().toString().equals(date)){
           booking = book;
         }
       }
       model.addAttribute("date", date);
+      model.addAttribute("price", booking.getPrice());
       return "change";
   }
   
