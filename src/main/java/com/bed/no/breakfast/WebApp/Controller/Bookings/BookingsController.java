@@ -17,6 +17,7 @@ import com.bed.no.breakfast.WebApp.StartServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 
@@ -61,9 +62,54 @@ public class BookingsController{
           booking = book;
         }
       }
+      
+      Double cancelRefund = calculateCancel(booking);
+      
+      System.out.println("Cancel refund>>>>>>>>>>>>" + cancelRefund);
       model.addAttribute("date", date);
       model.addAttribute("price", booking.getPrice());
+      model.addAttribute("cancelRefund", cancelRefund);
       return "change";
+  }
+  
+  public Double calculateCancel(Booking booking){
+	  double refund = 0.0;
+	  double bookingPrice = booking.getPrice();
+	  LocalDate bookingDate = booking.getDate();
+    LocalDate currentDate = LocalDate.now();
+    Period difference = currentDate.until(bookingDate);
+    int daysTillBooking = difference.getDays();
+    
+    if(daysTillBooking >= 14){
+      refund = bookingPrice;
+    }
+    
+    if (daysTillBooking >= 8 && daysTillBooking <=13){
+      refund = bookingPrice - (bookingPrice - (bookingPrice*0.75)); //75% Refund
+    }
+    
+    if (daysTillBooking == 7){
+      refund = bookingPrice - (bookingPrice - (bookingPrice*0.5)); //50% refund
+    }
+    
+    if (daysTillBooking >= 3 && daysTillBooking <= 6){
+      refund = bookingPrice - (bookingPrice - (bookingPrice*0.25));//25% refund
+    }
+	  return refund;
+  }
+  
+  public Double calcReschedule(LocalDate date, Booking booking){
+    //Cancelling a booking 14 or more days before gives 100% refund
+	  //8 to 13 days before gives 75% refund 
+	  //7 days before gives 50% refund
+	  //3 to 6 days before gives 25% refund
+	  //2 days and lower before gives 0% refund
+	  
+	  double newPrice = 0.0;
+	  double bookingPrice = booking.getPrice();
+	  LocalDate bookingDate = booking.getDate();
+	  
+	  return newPrice;
   }
   
   @RequestMapping(value = "/bookings", method = RequestMethod.GET)
