@@ -55,21 +55,14 @@ public class BookingsController{
   @RequestMapping(value = "/bookings/{date}", method = RequestMethod.GET)
   public String bookings(@PathVariable("date") LocalDate date, Model model ){
       List<Booking> bookings = webService.getBookingsDb().getBookings();
-    
       Booking booking = null;
-      
-      if (date == null){
-        model.addAttribute("booking", bookings);
-      return "booking";  
-      }
-            
+      System.out.println("Date: " +date);
       for (Booking book: bookings){
         if (book.getDate().isEqual(date)){
           booking = book;
         }
       }
       
-
       model.addAttribute("booking", booking);
       return "change";
   }

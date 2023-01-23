@@ -5,10 +5,19 @@
   </head>
   <body>
     <h1>Bookings</h1>
-    <ul>
+    <li id="nav">
+      <a th:href="@{/book}">Book a room</a>
+        <a th:href="@{/login}">Log Out</a>
+      </li>
+      
+      <form>
+        <h4>Booked dates: </h4>
+        <ul>
         <li id="booked" th:each="booking : ${bookings}">
             <a th:href="@{/change}" th:text="${booking.date}"></a>
         </li>
-    </ul>
+    </ul>    
+      </form>
+    
 </body>
 </html>

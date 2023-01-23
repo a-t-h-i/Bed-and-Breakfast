@@ -4,21 +4,26 @@
     <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-  <h3>Your bookings</h3>
-  <form action="/change" method="Post">
+  <h3>Change Booking</h3>
+    <li id="nav">
+          <a th:href="@{/bookings}">Booked</a>
+          <a>  -  </a>
+          <a th:href="@{/login}">Log Out</a>
+    </li>
+  <form th:action="@{/change}" method="Post">
   <table>
     <tr>
       <td><p>Date: </p></td>
-      <td><input type="date" id="bookingDate"></td>
-      <td><button id="change">Reschedule</button></td>
-      <td><button id="cancel">Cancel</button></td>
+      <td><input type="date" name="date" id="date"></td>
+      <td><button type="submit" id="change" name="submit">Reschedule</button></td>
+      <td><button type="submit" id="cancel" name="submit" value="cancel">Cancel</button></td>
     </tr>
     
     <tr>
       <td></td>
       <td></td>
-      <td><label id="resCharge">R0</label></td>
-      <td><label id="cancelCharge">R0</label></td>
+      <td><label id="resCharge" name="total1">0.00</label></td>
+      <td><label id="cancelCharge" name="total2">0.00</label></td>
     </tr>
   </table>
   </form>
