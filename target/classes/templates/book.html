@@ -65,6 +65,19 @@
       window.history.pushState(stateObj,
                "Book", "/book");
   }
+  
+  // Get the current date
+var currentDate = new Date();
+
+// Get the first and last day of the current week
+var firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay());
+var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), firstDay.getDate() + 6);
+
+// Disable all dates except for the ones in the current week
+arrive.setAttribute("min", firstDay.toISOString().slice(0,10));
+arrive.setAttribute("max", lastDay.toISOString().slice(0,10));
+var today = new Date();
+arrive.setAttribute("min", today.toISOString().slice(0,10));
 </script>
 
 </html>
