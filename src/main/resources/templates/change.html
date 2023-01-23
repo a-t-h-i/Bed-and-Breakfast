@@ -10,17 +10,14 @@
           <a>  -  </a>
           <a th:href="@{/login}">Log Out</a>
     </li>
-    <input name="date" id="date" th:text="${booking.getDate()}">
-    <input name="price" id="price" th:text="${booking.getPrice()}">
-    
     
   <form th:action="@{/change}" method="Post">
   <table>
     <tr>
       <td><p>Date: </p></td>
-      <td><input type="date" name="date" id="date"></td>
-      <td><button type="submit" id="change" name="submit">Reschedule</button></td>
-      <td><button type="submit" id="cancel" name="submit" value="cancel">Cancel</button></td>
+      <td><input type="date" name="date" id="date" th:value="${date}"></td>
+      <td><button type="submit" id="change" name="submit" value="Reschedule">Reschedule</button></td>
+      <td><button type="submit" id="cancel" name="submit" value="Cancel">Cancel</button></td>
     </tr>
     
     <tr>
@@ -30,6 +27,7 @@
       <td><label id="cancelCharge" name="total2">0.00</label></td>
     </tr>
   </table>
+  <p th:text="${message}"></p>
   </form>
   </body>
 </html>

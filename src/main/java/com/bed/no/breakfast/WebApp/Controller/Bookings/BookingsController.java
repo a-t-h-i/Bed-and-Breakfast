@@ -56,7 +56,7 @@ public class BookingsController{
   public String bookings(@PathVariable("date") String date, Model model){
       List<Booking> bookings = webService.getBookingsDb().getBookings();
       
-      LocalDate daat = LocalDate.parse(date);
+      LocalDate daat = LocalDate.parse("2023-01-23");
       Booking booking = null;
       
       System.out.println("Date: " + date);
@@ -66,7 +66,7 @@ public class BookingsController{
           booking = book;
         }
       }
-      model.addAttribute("booking", booking);
+      model.addAttribute("date", date);
       return "change";
   }
   
