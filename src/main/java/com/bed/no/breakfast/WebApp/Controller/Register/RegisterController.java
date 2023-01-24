@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bed.no.breakfast.WebApp.User.Person;
@@ -28,7 +29,7 @@ public class RegisterController{
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(@ModelAttribute Person user){
+	public String registerUser(@ModelAttribute Person user, Model model){
 	  String name = user.getName();
 	  String surname = user.getSurname();
 	  String email = user.getEmail();
@@ -39,6 +40,7 @@ public class RegisterController{
 	    addUser(name, surname, email, phone, password);
 	    return("login");
 	  }
+	  model.addAttribute("message", "User already exists!");
 	  return("register");
 	}
 	

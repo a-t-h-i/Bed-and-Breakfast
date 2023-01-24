@@ -79,22 +79,12 @@ public class BookingsController{
       return "bookings";  
   }
 	
-	//**************Change Booking**************//
-	@RequestMapping(value = "/change", method = RequestMethod.POST)
-	public String modify(){
-	  //Add logic for based on user interaction on the page
-	  //Cancelling a booking 14 or more days before gives 100% refund
-	  //8 to 13 days before gives 75% refund 
-	  //7 days before gives 50% refund
-	  //3 to 6 days before gives 25% refund
-	  //2 days and lower before gives 0% refund
-	  return "bookings";
-	}
-	
 	//Cancel booking
 	@RequestMapping(value = "/cancel", method = RequestMethod.POST)
-	public String cancelBooking(@ModelAttribute bookDate book){
-	  System.out.println(">>>>>>>>>> " + book.getDate());
+	public String cancelBooking(Model model){
+	  //I'm struggling to make the form pass the date to this controller so that I can remove the booking with the given date...
+	  List<Booking> bookings = webService.getBookingsDb().getBookings();
+    model.addAttribute("bookings", bookings);
 	  return "bookings";
 	}
 	
@@ -103,7 +93,6 @@ public class BookingsController{
 	  for (Booking room: webService.getBookingsDb().getBookings()){
 	   
 	    if (room.getDate().isEqual(date)){
-	      System.out.println("Room taken");
 	      return false; //Room taken
 	    }
 	  }
@@ -143,20 +132,6 @@ public class BookingsController{
 	  return refund;
   }
   
-  public Double calcReschedule(LocalDate date, Booking booking){
-    //Cancelling a booking 14 or more days before gives 100% refund
-	  //8 to 13 days before gives 75% refund 
-	  //7 days before gives 50% refund
-	  //3 to 6 days before gives 25% refund
-	  //2 days and lower before gives 0% refund
-	  
-	  double newPrice = 0.0;
-	  double bookingPrice = booking.getPrice();
-	  LocalDate bookingDate = booking.getDate();
-	  
-	  return newPrice;
-  }
-	
 	class bookObj{
 	  private LocalDate date = null;
 	  private Double price = null;
@@ -178,18 +153,6 @@ public class BookingsController{
 	  
 	  public String getUser(){
 	    return this.user;
-	  }
-	}
-	
-	public class bookDate{
-	  private String date = "";
-	  
-	  public bookDate(String date){
-	    this.date = date;
-	  }
-	  
-	  public String getDate(){
-	    return this.date;
 	  }
 	}
 }
