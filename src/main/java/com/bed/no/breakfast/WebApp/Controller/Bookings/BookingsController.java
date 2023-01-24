@@ -65,14 +65,58 @@ public class BookingsController{
       }
       
       Double cancelRefund = calculateCancel(booking);
-      
-      System.out.println("Cancel refund>>>>>>>>>>>>" + cancelRefund);
       model.addAttribute("date", date);
       model.addAttribute("price", Math.round(booking.getPrice() * 100.0)/100.0);
       model.addAttribute("cancelRefund", Math.round(cancelRefund * 100.0)/100.0);
+      model.addAttribute("bookDate", booking.getDate());
       return "change";
   }
   
+  @RequestMapping(value = "/bookings", method = RequestMethod.GET)
+  public String showBooked(Model model){
+      List<Booking> bookings = webService.getBookingsDb().getBookings();
+      model.addAttribute("bookings", bookings);
+      return "bookings";  
+  }
+	
+	//**************Change Booking**************//
+	@RequestMapping(value = "/change", method = RequestMethod.POST)
+	public String modify(){
+	  //Add logic for based on user interaction on the page
+	  //Cancelling a booking 14 or more days before gives 100% refund
+	  //8 to 13 days before gives 75% refund 
+	  //7 days before gives 50% refund
+	  //3 to 6 days before gives 25% refund
+	  //2 days and lower before gives 0% refund
+	  return "bookings";
+	}
+	
+	//Cancel booking
+	@RequestMapping(value = "/cancel", method = RequestMethod.POST)
+	public String cancelBooking(@ModelAttribute bookDate book){
+	  System.out.println(">>>>>>>>>> " + book.getDate());
+	  return "bookings";
+	}
+	
+	public boolean addBooking(String user, LocalDate date, Double price){
+	  //Check if room is taken
+	  for (Booking room: webService.getBookingsDb().getBookings()){
+	   
+	    if (room.getDate().isEqual(date)){
+	      System.out.println("Room taken");
+	      return false; //Room taken
+	    }
+	  }
+	  
+	  if (webService.getBookingsDb().getBookings().size() <= 4){ //Check if there's less than 5 days left if yes add booking 
+	    webService.getBookingsDb().addBooking( new Booking(user, date, price));
+	    return true;  
+	  }
+	
+	  return false;
+	}
+	
+	  
   public Double calculateCancel(Booking booking){
 	  double refund = 0.0;
 	  double bookingPrice = booking.getPrice();
@@ -112,49 +156,6 @@ public class BookingsController{
 	  
 	  return newPrice;
   }
-  
-  @RequestMapping(value = "/bookings", method = RequestMethod.GET)
-  public String showBooked(Model model){
-      List<Booking> bookings = webService.getBookingsDb().getBookings();
-      model.addAttribute("bookings", bookings);
-      return "bookings";  
-  }
-
-	
-	//**************Change Booking**************//
-	@RequestMapping(value = "/change", method = RequestMethod.POST)
-	public String modify(){
-	  //Add logic for based on user interaction on the page
-	  //Cancelling a booking 14 or more days before gives 100% refund
-	  //8 to 13 days before gives 75% refund 
-	  //7 days before gives 50% refund
-	  //3 to 6 days before gives 25% refund
-	  //2 days and lower before gives 0% refund
-	  return "bookings";
-	}
-	
-	@RequestMapping(value = "/change", method = RequestMethod.GET)
-	public String change(Model model){
-	  return"change";
-	}
-	
-	public boolean addBooking(String user, LocalDate date, Double price){
-	  //Check if room is taken
-	  for (Booking room: webService.getBookingsDb().getBookings()){
-	   
-	    if (room.getDate().isEqual(date)){
-	      System.out.println("Room taken");
-	      return false; //Room taken
-	    }
-	  }
-	  
-	  if (webService.getBookingsDb().getBookings().size() <= 4){ //Check if there's less than 5 days left if yes add booking 
-	    webService.getBookingsDb().addBooking( new Booking(user, date, price));
-	    return true;  
-	  }
-	  System.out.println("Weekly limit reached");
-	  return false;
-	}
 	
 	class bookObj{
 	  private LocalDate date = null;
@@ -177,6 +178,18 @@ public class BookingsController{
 	  
 	  public String getUser(){
 	    return this.user;
+	  }
+	}
+	
+	public class bookDate{
+	  private String date = "";
+	  
+	  public bookDate(String date){
+	    this.date = date;
+	  }
+	  
+	  public String getDate(){
+	    return this.date;
 	  }
 	}
 }

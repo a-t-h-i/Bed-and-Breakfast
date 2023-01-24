@@ -35,6 +35,8 @@ public class LoginController{
 		  saveToSession(email);
 		  return "book";  
 		}
+		
+		//Show error message
 		return "login";
 	}
 	

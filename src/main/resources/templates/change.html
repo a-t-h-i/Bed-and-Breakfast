@@ -10,6 +10,10 @@
           <a>  -  </a>
           <a th:href="@{/login}">Log Out</a>
     </li>
+    <!--Booking date display-->
+    <table>
+      <td><p name="bookDate" id="bookDate" th:text="${bookDate}"></p></td>
+    </table>
     
   <form th:action="@{/change}" method="Post">
     <table>

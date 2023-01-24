@@ -1,6 +1,11 @@
+/storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/Controller/Register/RegisterController.java
+/storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/Controller/Login /LoginController.java
+/storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/StartServices.java
+/storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/UserSessions.java
 /storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/User/Database/UserDatabase.java
 /storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/Bookings/Database/BookingsDb.java
 /storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/User/Person.java
+/storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/Controller/Bookings/BookingsController.java
 /storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/BedNoBreakfastWebAppApplication.java
 /storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/Controller/WebController.java
 /storage/emulated/0/Documents/DevTest/src/main/java/com/bed/no/breakfast/WebApp/Bookings/Booking.java
