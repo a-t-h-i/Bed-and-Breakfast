@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import java.time.LocalDate;
 import java.time.Period;
+import java.lang.Math; 
 import java.util.*;
 
 
@@ -67,8 +68,8 @@ public class BookingsController{
       
       System.out.println("Cancel refund>>>>>>>>>>>>" + cancelRefund);
       model.addAttribute("date", date);
-      model.addAttribute("price", booking.getPrice());
-      model.addAttribute("cancelRefund", cancelRefund);
+      model.addAttribute("price", Math.round(booking.getPrice() * 100.0)/100.0);
+      model.addAttribute("cancelRefund", Math.round(cancelRefund * 100.0)/100.0);
       return "change";
   }
   

@@ -5,9 +5,6 @@
 </head>
 <body>
   <input type="text" name="price" th:value="${price}" style="display: none;">
-
-  
-  <h3>Change Booking</h3>
     <li id="nav">
           <a th:href="@{/bookings}">Booked</a>
           <a>  -  </a>
@@ -15,21 +12,31 @@
     </li>
     
   <form th:action="@{/change}" method="Post">
+    <table>
+      <td><h3>Booking Price:</h3></td>
+      <td><h3 name="price" id="price" th:text="R+ ${price}"></h3></td>
+    </table>
   <table>
+    
     <tr>
-      <td><p>Date: </p></td>
       <td><input type="date" name="date" id="date" th:value="${date}"></td>
       <td><button type="submit" id="change" name="submit" value="Reschedule">Reschedule</button></td>
-      <td><button type="submit" id="cancel" name="submit" value="Cancel">Cancel</button></td>
     </tr>
     
     <tr>
-      <td></td>
-      <td></td>
-      <td><label id="resCharge" name="resCharge" >0.00</label></td>
-      <td><label id="cancelRefund" name="cancelRefund" th:value="${cancelRefund}"></label></td>
+      <td><h4>Reschedule for:</h4></td>
+      <td><h4 id="resCharge" name="resCharge" >0.00</h4></td>
     </tr>
   </table>
   </form>
+  
+  
+  <form th:action="@{/cancel}" method="Post">
+  <table>
+    <tr>
+      <td><h4>Cancel and get back: </h4></td>
+      <td><h5 id="cancelRefund" name="cancelRefund" th:text="R + ${cancelRefund}"></h5></td>
+      <td><button type="submit" id="cancel" name="submit" value="Cancel">Cancel</button></td>
+    </tr>
   </body>
 </html>
