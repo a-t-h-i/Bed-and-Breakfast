@@ -28,7 +28,7 @@ public class LoginController{
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String logUser(@ModelAttribute Login user){
+	public String logUser(@ModelAttribute Login user, Model model){
 	  String email = user.getEmail();
 	  String password = user.getPassword();
 	 
@@ -36,8 +36,7 @@ public class LoginController{
 		  saveToSession(email);
 		  return "book";  
 		}
-		
-		//Show error message
+		model.addAttribute("message", "You have entered incorrect details!");
 		return "login";
 	}
 	

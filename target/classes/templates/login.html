@@ -7,6 +7,8 @@
 <body>
     <form th:action="@{/login}" method="post">
         <h3>Login to B and no B</h3>
+        <br>
+        <h5 id="error" th:text="${message}"></h5>
         <label for="email">Email:</label>
         <input id="email" name="email" type="email" placeholder="john@doe.com" required>
         <br>
@@ -17,5 +19,6 @@
         <br>
         <a th:href="@{/register}">Don't have an account? Register</a>
     </form>
+    
 </body>
 </html>
