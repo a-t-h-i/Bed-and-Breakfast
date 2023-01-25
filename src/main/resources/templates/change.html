@@ -10,6 +10,7 @@
           <a>  -  </a>
           <a th:href="@{/login}">Log Out</a>
     </li>
+    
     <!--Booking date display-->
     <table>
       <td><p name="bookDate" id="bookDate" th:text="${bookDate}"></p></td>
@@ -39,7 +40,7 @@
   <table>
     <tr>
       <td><h4>Cancel and get back: </h4></td>
-      <td><h5 id="cancelRefund" name="cancelRefund" th:text="R + ${cancelRefund}"></h5></td>
+      <td><h5 id="cancelRefund" name="cancelRefund" th:text="${cancelRefund}"></h5></td>
       <td><button type="submit" id="cancel" name="submit" value="Cancel">Cancel</button></td>
       <p name="date" id="date" th:text="${bookDate}" style="display: none;"></p>
     </tr>
@@ -47,4 +48,35 @@
     </form>
     
   </body>
+  
+  <script>
+      
+      // Get references to the input field and label
+    var date = document.getElementById("date");
+    var extraCharge = document.querySelector("#cancelRefund").innerHTML;
+  
+    // Add an event listener to the "date" input field
+    date.addEventListener("change", calculateTotal);
+    
+    function getDayOfYear(date) {
+    var start = new Date(date.getFullYear(), 0, 0);
+    var diff = date - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var dayOfYear = Math.floor(diff / oneDay);
+    return dayOfYear;
+    }
+  
+    function calculateTotal() {
+      
+      // Get the value of the "date" input field
+      var date = new Date(document.getElementById('date').value);
+      const dayOfYear = getDayOfYear(date);
+      
+      //Calculate the total with the the extra charge
+      var totalCost = ((dayOfYear + 100) / 12) + Number(extraCharge);
+  
+      // Update the label with the total cost
+      document.querySelector("#resCharge").innerHTML = totalCost.toFixed(2);
+    }
+  </script>
 </html>
